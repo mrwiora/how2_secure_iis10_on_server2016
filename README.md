@@ -1,6 +1,6 @@
-## Welcome to my Guide how to secure your IIS 10 on Windows Server 2016
+## how to secure your IIS 10 on Windows Server 2016
 
-these days I've tested my own IIS Servers with Qualys SSL Labs Test Suite and I've got a B-grade, which is not accaptable from a security perspective. By default TLS 1.0 / TLS 1.1 are enabled and even RC4 was still being possible to be handshaked...
+these days I've tested my own IIS Servers with Qualys SSL Labs Test Suite and I've got a B-grade, which is not accaptable from a security perspective. By default TLS 1.0 / TLS 1.1 are enabled and even RC4 was still possible to be handshaked...
 
 ### 
 
@@ -32,8 +32,7 @@ New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders
 New-ItemProperty -path 'HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers\RC4 56/128' -name 'Enabled' -value '0' -PropertyType 'DWord' -Force | Out-Null
 ```
 
-# helpful:
-https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs
+source: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs
 
 Since I just wanted to eliminate the last point - offered Cipher Suites by TLS 1.2 I was just looking how to disable them. Here we are:
 
